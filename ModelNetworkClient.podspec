@@ -6,7 +6,7 @@ spec.platform     = :ios
 spec.homepage     = 'https://github.com/wujiangwei/ModelNetworkClient'
 spec.authors      = { 'Kevin.Wu' => 'wujiangwei55@163.com' }
 spec.summary      = '基于AFNetworking和JSONModel整合的IOS ModelNetworkClient，为需要使用网络的IOS App提供方便快捷、基于操作对象的App开发体验'
-spec.source       = { :git => 'https://github.com/wujiangwei/ModelNetworkClient.git', :commit => '4fed2269f977873ea55a790166ecf4e0f19c0af3' }
+spec.source       = { :git => 'https://github.com/wujiangwei/ModelNetworkClient.git', :commit => '2350f899d385a9d2bb70bbb323cc82c59cbf89b5' }
 spec.source_files = 'ModelNetworkClient.{h,m}'
 spec.framework    = 'Foundation'
 spec.dependency 'JSONModel'
