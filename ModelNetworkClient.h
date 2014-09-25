@@ -73,12 +73,20 @@ typedef void (^BlockHTTPRequestCache)(AFHTTPRequestOperation *operation, id resp
 @interface ModelNetworkClient : AFHTTPRequestOperationManager
 
 #pragma mark - get handler
+
+/**
+ *  继承ModelNetworkClient，Override该方法设置baseUrl
+ *
+ *  @return BaseURL
+ */
++ (NSString *)baseUrl;
+
 /**
  *  使用指定的BaseURL的Client
  *
  *  @return 使用指定的BaseURL的Client
  */
-+ (instancetype)defaultNetClient:(NSString *)baseUrl;
++ (instancetype)defaultNetClient:(Class)customClass;
 
 #pragma mark - Debugger Tools
 
