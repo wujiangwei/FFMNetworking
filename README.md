@@ -124,7 +124,10 @@ ModelNetworkClient 主要提供以下功能：
     
     //Model化请求
     
+    
     //JSONModel讲解：Optional 代表这个字段，服务器可以不返回，Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
+    
+    
     
     1.定义你的返回Model：HomeResonseModel:
     
@@ -133,6 +136,7 @@ ModelNetworkClient 主要提供以下功能：
     @property (nonatomic, strong)NSNumber<Optional> *errorId;   //number类型
     @property (nonatomic, strong)NSString<Optional> *homeString;//字符串
     @property (nonatomic, strong)homeListItemJsonModel<Optional> *homeObject;   //对象
+    
     //协议homeListItemJsonModel，代表了，这个数组里的对象是什么
     //如果是基本类型，无需写homeListItemJsonModel，但是你要知道是NSNumber还是NSString~
     @property (nonatomic, strong)NSArray<Optional, homeListItemJsonModel> *homeList;    //数组
@@ -153,35 +157,50 @@ ModelNetworkClient 主要提供以下功能：
     }
     @end
     
+    
     //homeListItemJsonModel 对象
     @interface homeListItemJsonModel : JSONModel
+    
     @property (nonatomic, strong)NSString<Optional> *imageUrl;
     @property (nonatomic, strong)NSNumber<Optional> *tagId;
+    
     @end
 
     //这个请求完整地址为 http://example.com/resources.json， http://example.com为baseUrl，参见上文
     (可选)2.ModelRequestJsonModel *HomeRequestModel = [[ModelRequestJsonModel alloc] initWithURLPath:@"resources.json"];
+    
+    
     3.发起请求
-    //直接使用url
-    //不使用requestMode
+    
+    //直接使用url，不使用requestMode
     [[ModelNetworkClient defaultNetClient] GET:@"http://example.com/resources.json" JSONModelClass:[HomeResonseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         //此时返回给你的，是已经自动填充好的HomeResonseModel Class对象
         //你可以在任何地方直接使用该对象，无需objectForKey
         //而homeListItemJsonModel，你可以用做刷新你的cell的数据源
+        
         NSLog(@"JSONModel: %@", responseObject);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
         NSLog(@"Error: %@", error);
+        
     }];
+    
     
     //使用requestModel
     [[ModelNetworkClient defaultNetClient] GETRModel:HomeRequestModel JSONModelClass:[HomeResonseModel class]                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
         //此时返回给你的，是已经自动填充好的HomeResonseModel Class对象
         //你可以在任何地方直接使用该对象，无需objectForKey
-        //当HomeResonseModel Class对象有一个数组Array的时，他
         NSLog(@"JSONModel: %@", responseObject);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
         NSLog(@"Error: %@", error);
+        
     }];
+    
     
     //如果客户端协议简单，推荐直接使用url
     
