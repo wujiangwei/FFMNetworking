@@ -14,16 +14,13 @@ ModelNetworkClient
 
 
 
-
-
-
-
 ModelNetworkClient 主要提供以下功能：
 
   1.把网络返回数据（NSData、NSArray、NSDictionary）自动转化成JSONObject，方便外部模块的使用
   
   2.提供Python脚本，帮你自动生成服务器返回的数据 Model的.h和.m文件，
     脚本使用方法：
+    
         IOSModelParse.py 文件中 修改以下配置项：
       
 
@@ -34,16 +31,16 @@ ModelNetworkClient 主要提供以下功能：
         
         被解析的文件说明：（请仔细阅读）
         
-        //需要解析的文件名，注意：和IOSModelParse.py放在同级目录
+        //需要解析的文件，注意：和IOSModelParse.py放在同级目录
         
         //文件内容来自：
         
             //把Api服务器的网址 比如:http://1.stormofheros.sinaapp.com/searchPic/key校园
             
-            //输入到浏览器中（浏览器需要有类似于JsonView的东西）或者 复制此时浏览器返回的数据，到http://bejson.com/
-                网站上格式化，拷贝格式化数据，到fileOne文件中
+            //把网址输入到浏览器中（浏览器需要有类似于JsonView的JSON插件）然后 复制此时浏览器返回的数据，
+                如果数据没JSON格式化，你可以到http://bejson.com/网站上格式化，拷贝格式化后的数据，内容粘贴到fileOne文件中
                 
-            //为何必须要格式化：因为目前脚本是按行来解析，所以需要没一行一个 key:value，不能一行有多个key:value
+            //为何必须要格式化：因为目前脚本是按行来解析，所以需要每一行一个 key:value，不能一行有多个key:value
             
                     //对的格式 {testKey1:'value1'}
                     //错误的格式{testKey1:'value1', testKey2:'value2'}
@@ -53,20 +50,20 @@ ModelNetworkClient 主要提供以下功能：
                     
                     //所以如果你们的服务器返回了一些类似于这样的url，请把对用key的value删除后，再使用本脚本
                     
-                    //关键是保留key 即可
+                    //解析器的关键是使用对应的key
                     
                     //对应一些无类型的解析字段，会给予new_error_list_empty的property名字，方便你把生成model放入工程时有相关的编译提示
-                    
+        //配置文件内容            
         jsonFileList = ['fileOne', 'fileTwo', ...]     
         
         
 
-  3.后续可能会考虑把请求也封装到脚本中去，尽请期待
+  3.后续可能会考虑把请求也封装到脚本中去，可以给我一些意见 QQ:461647731
   
   
   4.如何使用本模块
   
-    定制话自己的NetClient
+    （可选）你可以定制话自己的NetClient，如果需要的话：
     
     如果你需要加入baseUrl 你需要继承ModelNetworkClient，并且重写以下方法
     
@@ -97,7 +94,7 @@ ModelNetworkClient 主要提供以下功能：
     
         - (NSDictionary *)commonRequestParam
         {
-        return nil;
+        	return nil;
         }
         
         
