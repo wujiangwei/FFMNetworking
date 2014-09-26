@@ -149,7 +149,7 @@ ModelNetworkClient 主要提供以下功能：
         //记得测试完毕后，删除该代码。
     
         //你也可以自定义数据的返回内容,根据原来的数据~
-        return nil;
+        return @“测试数据”;
     }
     @end
     
@@ -167,7 +167,7 @@ ModelNetworkClient 主要提供以下功能：
     [[ModelNetworkClient defaultNetClient] GET:@"http://example.com/resources.json" JSONModelClass:[HomeResonseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //此时返回给你的，是已经自动填充好的HomeResonseModel Class对象
         //你可以在任何地方直接使用该对象，无需objectForKey
-        //当HomeResonseModel Class对象有一个数组Array的时，他
+        //而homeListItemJsonModel，你可以用做刷新你的cell的数据源
         NSLog(@"JSONModel: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
