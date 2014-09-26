@@ -1,0 +1,114 @@
+{
+id: "14105",
+title: "我的机器人女友日语",
+trunk: "我的机器人女友",
+img_url: "http://c.hiphotos.baidu.com/video/pic/item/960a304e251f95cacc953e42cb177f3e660952e5.png",
+intro: "次郎是个寂寞的大学生，到了生日也没人为他祝福。次郎跑到百货公司给自己买二十岁生日的礼物，他碰到了一个好像刚从火灾现场逃出来的可爱女孩，然而，当次郎坠入爱河、深深被这个不按理出牌的漂亮女孩吸引时，她却突然不知所踪。一年后，次郎在21岁生日那天居然又遇到了她！然而，她似乎发生了微妙的变化。一个持枪男子袭击餐厅，在次郎即将被子弹击中的瞬间，女孩化解了次郎的危机。女孩说出了真相，原来她是来自未来的机器人。",
+rating: "7.4",
+duration: "120:35",
+pubtime: "2008",
+director: [
+"郭在容"
+],
+actor: [
+"小出惠介",
+"绫濑遥",
+"阿井莉沙"
+],
+area: [
+"日本"
+],
+type: [
+"爱情",
+"剧情",
+"科幻"
+],
+site_type: "16",
+play_filter: "NULL",
+tags: [
+"喜剧",
+"幽默",
+"人工智能",
+"机器人",
+"未来",
+"纯爱",
+"动作",
+"科幻"
+],
+bdhd: "NULL",
+default_pos: "recommend",
+dsites: [ ],
+foreign_ip: "NULL",
+buy_ticket: "0",
+create_time: "0",
+sites: [
+{
+site_name: "华数",
+site_logo: "http://list.video.baidu.com/logowise/wasu.png",
+site_url: "http://www.wasu.cn/Play/show/id/2931848?refer=video.baidu.com",
+tvid: "NULL",
+download: "NULL",
+download_filter: "NULL",
+value: "NULL",
+type: "movie",
+bcs_url: "NULL",
+width: "NULL",
+height: "NULL",
+coprctl_play_mode: "1",
+coprctl_full_screen: "0"
+}
+],
+sameType: [
+{
+id: "14107",
+title: "邻家特工英语",
+rating: "6.1",
+img_url: "http://e.hiphotos.baidu.com/video/pic/item/fc1f4134970a304e7019ca3dd3c8a786c9175c39.jpg"
+},
+{
+id: "14118",
+title: "折磨 1944版瑞典语",
+rating: "7.6",
+img_url: "http://t1.baidu.com/it/u=809314074,3419264250&fm=20"
+},
+{
+id: "14122",
+title: "真爱之吻英语特辑",
+rating: "6.7",
+img_url: "http://t1.baidu.com/it/u=3569065882,3654799646&fm=20"
+},
+{
+id: "14130",
+title: "国产凌凌漆国语",
+rating: "7.9",
+img_url: "http://t1.baidu.com/it/u=714417794,65214703&fm=20"
+},
+{
+id: "14141",
+title: "唐伯虎点秋香1国语",
+rating: "8.2",
+img_url: "http://t3.baidu.com/it/u=1581369331,1782000190&fm=20"
+},
+{
+id: "14146",
+title: "魔幻厨房国语",
+rating: "5.6",
+img_url: "http://t3.baidu.com/it/u=3486401114,2518671114&fm=20"
+}
+],
+SameActor: false,
+SameDirector: [
+{
+id: "14711",
+title: "假如爱有天意韩语",
+rating: "8.2",
+img_url: "http://t1.baidu.com/it/u=3085428151,566636093&fm=20"
+},
+{
+id: "15431",
+title: "武林女大学生韩语",
+rating: "5.7",
+img_url: "http://t3.baidu.com/it/u=1724143572,2125057271&fm=20"
+}
+]
+}

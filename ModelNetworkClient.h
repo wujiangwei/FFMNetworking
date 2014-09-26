@@ -13,7 +13,7 @@
 
 //If Service just return an array, your response JSONModel can use this key to get Array
 //Always, Service prefer to returning a Dic(Map/Key-Value) To Client
-#define kModelNetworkDefaultArrayKey    @"modelNetworkDefaultArrayKey"
+#define kModelNetworkDefaultArrayKey    @"kJFObjectDefaultArrayKey"
 
 /**
  *  Http/Https response data Cache策略
@@ -73,12 +73,20 @@ typedef void (^BlockHTTPRequestCache)(AFHTTPRequestOperation *operation, id resp
 @interface ModelNetworkClient : AFHTTPRequestOperationManager
 
 #pragma mark - get handler
+
+/**
+ *  继承ModelNetworkClient，Override该方法设置baseUrl
+ *
+ *  @return BaseURL
+ */
++ (NSString *)baseUrl;
+
 /**
  *  使用指定的BaseURL的Client
  *
  *  @return 使用指定的BaseURL的Client
  */
-+ (instancetype)defaultNetClient:(NSString *)baseUrl;
++ (instancetype)defaultNetClient;
 
 #pragma mark - Debugger Tools
 

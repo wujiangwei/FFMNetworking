@@ -23,10 +23,17 @@ static ModelNetworkClient *__helper = nil;
 
 #pragma mark - handler
 
-+ (instancetype)defaultNetClient:(NSString *)baseUrl {
+//need Override this method
++ (NSString *)baseUrl
+{
+    return nil;
+}
+
++ (instancetype)defaultNetClient{
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __helper = [[self alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+        __helper = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[self class] baseUrl]]];
     });
     return __helper;
 }
