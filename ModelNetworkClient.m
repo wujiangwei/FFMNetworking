@@ -29,11 +29,11 @@ static ModelNetworkClient *__helper = nil;
     return nil;
 }
 
-+ (instancetype)defaultNetClient:(Class)customClass {
++ (instancetype)defaultNetClient{
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __helper = [[self alloc] initWithBaseURL:[NSURL URLWithString:[customClass baseUrl]]];
+        __helper = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[self class] baseUrl]]];
     });
     return __helper;
 }
