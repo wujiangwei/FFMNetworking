@@ -16,7 +16,6 @@ AndroidPlatform = 0
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
 defaultListKey = 'kJFObjectDefaultArrayKey'
-defaultSubObjectKey = 'kSubModelDefaultObjectKey'
 
 def startParseFiles():
     #read file content
