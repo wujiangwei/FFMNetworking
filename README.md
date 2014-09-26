@@ -25,6 +25,7 @@ ModelNetworkClient 主要提供以下功能：
   2.提供Python脚本，帮你自动生成服务器返回的数据 Model的.h和.m文件，
     脚本使用方法：
         IOSModelParse.py 文件中 修改以下配置项：
+      
 
         yourProjectPrefix = 'JF'                //你的工程Prefix
         
