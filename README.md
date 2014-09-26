@@ -3,7 +3,6 @@ ModelNetworkClient
 
 基于AFNetworking和JSONModel整合的IOS ModelNetworkClient(JFNetworkClient)
 最低支持IOS 6.0的开发
-
 （项目来自于 百度团购团队，经历了2次重构（一次百度团购、一次百度糯米）产生的网络框架，再整理后分享给大家）
 
 依赖外部模块：
@@ -12,11 +11,18 @@ ModelNetworkClient
   
 (使用ModelNetworkClient前，你应该去了解JSONModel，这样可以更好的使用本模块)
 
+
+
+
+
+
+
+
 ModelNetworkClient 主要提供以下功能：
 
   1.把网络返回数据（NSData、NSArray、NSDictionary）自动转化成JSONObject，方便外部模块的使用
   
-  2.提供Python脚本，帮你自动生成服务器返回的数据 Model，可以更方便的使用本模块
+  2.提供Python脚本，帮你自动生成服务器返回的数据 Model的.h和.m文件，
     脚本使用方法：
         IOSModelParse.py 文件中 修改以下配置项：
         yourProjectPrefix = 'JF'                //你的工程Prefix
