@@ -54,7 +54,10 @@ ModelNetworkClient 主要提供以下功能：
                     
                     //对应一些无类型的解析字段，会给予new_error_list_empty的property名字，方便你把生成model放入工程时有相关的编译提示
         //配置文件内容            
-        jsonFileList = ['fileOne', 'fileTwo', ...]     
+        jsonFileList = ['fileOne', 'fileTwo', ...]   
+        
+        目前生成的各个model文件互相引用的话，并没有自动import相关头文件，后续考虑支持
+        为何不支持：为了让使用者大概看下，都有哪些文件，如果有相关意见，觉得自动import好，我会第一时间更新脚本
         
         
 
