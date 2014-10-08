@@ -6,10 +6,10 @@ import re
 import os
 
 #config file,your can change anything here
-yourProjectPrefix = 'JF'        #default
+yourProjectPrefix = 'BDN'        #default
 yourModelBaseClassName = 'JSONModel'    #default
 
-jsonFileList = ['homePicJsonStr']
+jsonFileList = ['homeJsonContent', 'grouponDetailContent', 'videoDetailJsonContent']
 
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
