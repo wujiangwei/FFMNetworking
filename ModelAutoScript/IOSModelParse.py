@@ -3,15 +3,13 @@ __author__ = 'wujiangwei'
 
 import json
 import re
+import os
 
 #config file,your can change anything here
 yourProjectPrefix = 'JF'        #default
 yourModelBaseClassName = 'JSONModel'    #default
 
-jsonFileList = ['homePicJsonStr']
-
-IOSPlatform = 1
-AndroidPlatform = 0
+jsonFileList = ['videoJsonStr']
 
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
@@ -19,8 +17,13 @@ defaultListKey = 'kJFObjectDefaultArrayKey'
 
 def startParseFiles():
     #read file content
+
+    rootPath = os.getcwd()
+
     for fileName in jsonFileList:
         try:
+            os.chdir(rootPath)
+
             fileFo = open(fileName, 'r')
             easyFileContent = ''
             for line in fileFo.readlines():
@@ -36,13 +39,24 @@ def startParseFiles():
                     lineStr = dealStr + sufStr
                     #额外不规则数据的处理
                     lineStr.replace("'", "\"")
+                    #还需要处理异常字符
+                    #http://e.hiphotos.baidu.com/nuomi/wh%3D230%2C140/sign=d525777923a446237e9fad60ab125e3f/5bafa40f4bfbfbed13633b7c7bf0f736afc31ffe.jpg
                 easyFileContent = easyFileContent + lineStr
 
+            #复制代码
             easyFileContent = re.sub(r"(,?)(\w+?)\s*?:\s*(?='|\d|\[|{)", r"\1'\2':", easyFileContent)
+
             decodejson = json.loads(easyFileContent)
             fileFo.close()
 
-            generationFileByDict(fileName, transferJsonToDic(decodejson), 0)
+            childPath = 'AutoModel://' + fileName
+            try:
+                os.makedirs(childPath)
+            except:
+                tt = ''
+            os.chdir(childPath)
+
+            generationFileByDict(fileName, transferJsonToDic(decodejson), 0, 1)
         except IOError:
             print 'can not find your file named' + fileName + IOError.message
 
@@ -51,24 +65,22 @@ def FirstStrBigger(str):
     bodyStr = str[1:]
     return firStr.title() + bodyStr
 
-def generationFileByDict(fileName, aDict, needDicKey):
+def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
     className = ''
     if(needDicKey != 2):
         className = yourProjectPrefix + FirstStrBigger(fileName).strip() + 'JsonModel'
     else:
         className = yourProjectPrefix + FirstStrBigger(fileName).strip() + 'ItemJsonModel'
 
-    if(IOSPlatform):
-        fileName = className + '.h'
-    else:
-        fileName = className + '.java'
+    fileName = className + '.h'
 
-    OjectCFile = open(fileName,'w')
+    if(needGenFile > 0):
+        OjectCFile = open(fileName,'w')
 
-    if(IOSPlatform > 0):
-        #write .h file
-        #@implementation ModelResponseJsonModel
-        #@end
+    #write .h file
+    #@implementation ModelResponseJsonModel
+    #@end
+    if(needGenFile > 0):
         mFileName = className + '.m'
         OjectCMFile = open(mFileName, 'w')
         OjectCMFile.write('//\n//Auto ' + className + '.m File \n//From Python Script Kevin\n//\n//https://github.com/wujiangwei/ModelNetworkClient\n\n')
@@ -79,42 +91,31 @@ def generationFileByDict(fileName, aDict, needDicKey):
         OjectCMFile.write('@end')
         OjectCMFile.close()
 
-    #...
-        protocol = ''
-        #default type
-        defaultKey = ''
-        #object type
-        IntKey = ''
-        Strkey = ''
-        ListKey = ''
+    #define IOS Class Type
+    protocol = '@protocol'
+    defaultKey = 'NSString'
+    IntKey = 'NSNumber'
+    Strkey = 'NSString'
+    ListKey = 'NSArray'
 
-        #IOS
-        if(IOSPlatform):
-            #define IOS Class Type
-            protocol = '@protocol'
-            defaultKey = 'NSString'
-            IntKey = 'NSNumber'
-            Strkey = 'NSString'
-            ListKey = 'NSArray'
-
-            #write .h File header
-            OjectCFile.write('//\n// Auto Create JsonModel File\n// ' + className + '.h' +  '\n//\n// Github: https://github.com/wujiangwei/ModelNetworkClient\n\n\n')
-            OjectCFile.write('#import "JSONModel.h"\n')
-            #need protocol
-            if(needDicKey == 2):
-                #@protocol albumListItemModel
-                #@end
-                OjectCFile.write('\n@protocol ' + className)
-                OjectCFile.write('\n\n')
-                OjectCFile.write('@end')
-
-            OjectCFile.write('\n\n@interface ' + className + ' : ' + yourModelBaseClassName)
+    #write .h File header
+    if(needGenFile > 0):
+        OjectCFile.write('//\n// Auto Create JsonModel File\n// ' + className + '.h' +  '\n//\n// Github: https://github.com/wujiangwei/ModelNetworkClient\n\n\n')
+        OjectCFile.write('#import "JSONModel.h"\n')
+        #need protocol
+        if(needDicKey == 2):
+            #@protocol albumListItemModel
+            #@end
+            OjectCFile.write('\n@protocol ' + className)
             OjectCFile.write('\n\n')
+            OjectCFile.write('@end')
 
-        else:
-            #Android
-            protocol = 'implements'
-            #TODO For Android:
+        OjectCFile.write(getHeaderFileStr(aDict))
+        OjectCFile.write('\n')
+
+        OjectCFile.write('\n\n@interface ' + className + ' : ' + yourModelBaseClassName)
+        OjectCFile.write('\n\n')
+
 
     if(isinstance(aDict, list) or isinstance(aDict, tuple)):
         return ""
@@ -129,44 +130,72 @@ def generationFileByDict(fileName, aDict, needDicKey):
         #@property (nonatomic, strong)albumListItemModel<Optional> *testModel;
 
         if(isinstance(value, list) or isinstance(value, tuple)):
-            protocolKeyJsonM = generationFileByDict(key, parseDicFromList(value), 2)
+            protocolKeyJsonM = generationFileByDict(key, parseDicFromList(value), 2, 0)
             LineContent = ''
             if(len(protocolKeyJsonM) > 0):
+                generationFileByDict(key, parseDicFromList(value), 2, 1)
                 LineContent = '\n@property (nonatomic, strong) ' + ListKey + '<Optional, ' + protocolKeyJsonM + '> *' + key + ';\n'
             else:
                 LineContent = '@property (nonatomic, strong) ' + ListKey + '<Optional> *' + key + ';\n'
-            OjectCFile.write(LineContent)
+            if(needGenFile > 0):
+                OjectCFile.write(LineContent)
             #若是数组会加入默认key
 
         elif(isinstance(value, str) or isinstance(value, unicode)):
             LineContent = '@property (nonatomic, strong) ' + Strkey + '<Optional> *' + key + ';\n'
-            OjectCFile.write(LineContent)
+            if(needGenFile > 0):
+                OjectCFile.write(LineContent)
 
         elif(isinstance(value, dict)):
-            objectKey = generationFileByDict(key, value, 1)
+            objectKey = generationFileByDict(key, value, 1, 1)
             LineContent = '\n@property (nonatomic, strong) ' + objectKey + '<Optional> *' + key + ';\n'
-            OjectCFile.write(LineContent)
+            if(needGenFile > 0):
+                OjectCFile.write(LineContent)
 
         elif(isinstance(value, int) or isinstance(value, long) or isinstance(value, float)):
             LineContent = '@property (nonatomic, strong) ' + IntKey + '<Optional> *' + key + ';' + '\n'
-            OjectCFile.write(LineContent)
+            if(needGenFile > 0):
+                OjectCFile.write(LineContent)
 
         else:
             #Null or other Object
             LineContent = '@property (nonatomic, strong) ' + Strkey + '<Optional> *' + key + ';\n'
-            OjectCFile.write(LineContent)
+            if(needGenFile > 0):
+                OjectCFile.write(LineContent)
 
-    OjectCFile.write('\n')
-    OjectCFile.write('@end')
+    if(needGenFile > 0):
+        OjectCFile.write('\n')
+        OjectCFile.write('@end')
 
-    OjectCFile.close()
+        OjectCFile.close()
     return className
+
+
+def getHeaderFileStr(aDict):
+    importStr = ''
+    if(isinstance(aDict, list) or isinstance(aDict, tuple)):
+        return ""
+
+    for key in aDict:
+
+        value = aDict[key]
+        if(isinstance(value, list) or isinstance(value, tuple)):
+            protocolKeyJsonM = generationFileByDict(key, parseDicFromList(value), 2, 0)
+            LineContent = ''
+            if(len(protocolKeyJsonM) > 0):
+                importStr = importStr + '#import "' + protocolKeyJsonM + '.h"\n'
+
+        elif(isinstance(value, dict)):
+            objectKey = generationFileByDict(key, value, 1, 1)
+            importStr = importStr + '#import "' + objectKey + '.h"\n'
+
+    return importStr
 
 
 def parseDicFromList(aList):
     #the object in List,here must be Object,and not a string or int/null
     if(len(aList) <= 0):
-        return {'new_error_list_empty_write_model_yourself' : 'list is empty'}
+        return {'unknow_object_type_in_listObject' : 'list is empty'}
     if(isinstance(aList[0], dict)):
         return aList[0]
     return aList
