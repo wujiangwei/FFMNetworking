@@ -4,17 +4,64 @@ __author__ = 'wujiangwei'
 import json
 import re
 import os
+import urllib2
 
 #config file,your can change anything here
 yourProjectPrefix = 'BDN'        #default
 yourModelBaseClassName = 'JSONModel'    #default
 
-jsonFileList = ['homeJsonContent', 'grouponDetailContent', 'videoDetailJsonContent']
+#config
+jsonFileList = []   #废弃，使用实时请求的方式
+
+#config your request here
+getRequestUrl = ['http://app.nuomi.com/naserver/search/likeitem?appid=ios&bduss=&channel=com_dot_apple&cityid=100010000&cuid=b34cf00cd9cdbddb0af08fa4a5af3c79ee89b2af&device=iPhone%20Simulator&lbsidfa=C03D1D10-6BE5-4290-8216-FA7CD3222DAE&location=0.000000%2C0.000000&logpage=Home&net=wifi&os=8&sheight=1136&sign=3bcc04a3da5b8d26e1017473d40030e9&sort_type=0&swidth=640&terminal_type=ios&timestamp=1412742238540&tn=ios&tuan_size=25&uuid=b34cf00cd9cdbddb0af08fa4a5af3c79ee89b2af&v=5.2.0',\
+                 'http://app.nuomi.com/naserver/item/ItemDetailPage?appid=ios&bduss=&channel=com_dot_apple&cid=wjw&cityid=100010000&cuid=b34cf00cd9cdbddb0af08fa4a5af3c79ee89b2af&deal_id=1984585&device=iPhone%20Simulator&lbsidfa=C03D1D10-6BE5-4290-8216-FA7CD3222DAE&location=0.000000%2C0.000000&logpage=DealDetail&net=wifi&os=8&s=2a4d91de2499c45474307de49e044a3f&sheight=1136&sign=53afe366bb1784e411a73be50ecfd1ea&swidth=640&terminal_type=ios&timestamp=1412742605566&tinyPicWidth=150&tn=ios&uuid=b34cf00cd9cdbddb0af08fa4a5af3c79ee89b2af&v=5.2.0',\
+                 'http://dy.guo7.com/index.php/api/video_info?videoid=116210']
 
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
 defaultListKey = 'kJFObjectDefaultArrayKey'
 
+def startGenerateModel():
+    generateModelByHttpGet()
+
+#parse by get request url
+
+def getKeyWordByUrl(url):
+    ret = ''
+    retList = url.split('?')
+    if(len(retList) > 0):
+        newStr = retList[0]
+        retList = newStr.split('/')
+        ret = retList[len(retList) - 1]
+    return ret
+
+def generateModelByHttpGet():
+    rootPath = os.getcwd()
+
+    for getUrl in getRequestUrl:
+        keyWord = getKeyWordByUrl(getUrl)
+        if(len(keyWord) > 0):
+            os.chdir(rootPath)
+
+            req = urllib2.Request(getUrl)
+            res_data = urllib2.urlopen(req)
+            resData = res_data.read()
+
+            decodejson = json.loads(resData)
+
+            rootPath = os.getcwd()
+            childPath = 'AutoModel://' + keyWord
+            try:
+                os.makedirs(childPath)
+            except:
+                tt = ''
+            os.chdir(childPath)
+
+            generationFileByDict(keyWord, transferJsonToDic(decodejson), 0, 1)
+
+#parse by file content
+#废弃，使用generateModelByHttpGet
 def startParseFiles():
     #read file content
 
@@ -216,4 +263,4 @@ def transferJsonToDic(decodejson):
     return {'newParseError' : 'content is invalid'}
 
 
-startParseFiles()
+startGenerateModel()
