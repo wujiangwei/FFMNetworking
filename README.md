@@ -44,7 +44,7 @@ ModelNetworkClient 主要提供以下功能：
     
         1.Get Url 返回的空字段，比如 空的dic/array 你都需要手动补充具体的model
         
-        2.若不通模块的model需要复用，需要互相协商
+        2.若不同模块的model需要复用，需要互相协商
         
         3.用于生成model的url返回的数据应该齐全，不然生成的model也不齐全，需要在后续使用中补充之
         
