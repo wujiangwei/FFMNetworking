@@ -9,7 +9,7 @@ import os
 yourProjectPrefix = 'JF'        #default
 yourModelBaseClassName = 'JSONModel'    #default
 
-jsonFileList = ['videoJsonStr']
+jsonFileList = ['homePicJsonStr']
 
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
@@ -27,16 +27,18 @@ def startParseFiles():
             fileFo = open(fileName, 'r')
             easyFileContent = ''
             for line in fileFo.readlines():
-                addPreSuf = ':'
                 lineStr = line.strip('\n')
                 lineStr = line.strip()
-                if(lineStr.count(addPreSuf) >= 1):
-                    Location = lineStr.find(addPreSuf)
-                    sufStr = lineStr[Location :]
-                    dealStr = lineStr[: Location]
-                    #TODO:"如果这边key已经带了""就不要加了
-                    dealStr = "\"" + dealStr + "\""
-                    lineStr = dealStr + sufStr
+                if(lineStr.count(':') >= 1):
+                    #踢出““数据
+                    mLocation = lineStr.find('"')
+                    if(mLocation != 0):
+                        Location = lineStr.find(':')
+                        sufStr = lineStr[Location :]
+                        dealStr = lineStr[: Location]
+                        #TODO:"如果这边key已经带了""就不要加了
+                        dealStr = "\"" + dealStr + "\""
+                        lineStr = dealStr + sufStr
                     #额外不规则数据的处理
                     lineStr.replace("'", "\"")
                     #还需要处理异常字符

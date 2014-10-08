@@ -1,314 +1,244 @@
 {
-    errno: 0,
-    errmsg: "success",
-    deal_id: "1090022",
-    deal_type: 1,
-    rush_buy: {
-        market_price: 5300,
-        current_price: 4800,
-        sell_status: 1,
-        favour_info: {
-            favour_price: null,
-            text: [
-                
-            ],
-            type: null,
-            favour_id: "",
-            favour_icon: "",
-            hongbao_info: [
-                
-            ]
-        }
-    },
-    title_about: {
-        image: [
-            ""
-        ],
-        min_image: "%3D230%2C140",
-        business_title: "好伦哥",
-        subtitle: "超值单人自助！纯手工制作的经典比萨！",
-        remain_time: 6156927,
-        sell_count: 9038,
-        special_mark: 1,
-        tinyurl: ""
-    },
-    safeguard_info: [
-        {
-            icon_id: 1,
-            safeguard_name: "未消费，随便退",
-            safeguard_web: ""
-        }
-    ],
-    notice: {
-        notice: ""
-    },
-    buy_content: {
-        content_type: 0,
-        buy_content: "- 超值单人自助（1份，价值53元）",
-        have_buy_details: 1
-    },
-    consumer_tips: {
-        consumer_type: 0,
-        consumer_tips: "- 糯米券有效期：2014年06月07日至2014年12月06日 - 糯米券接待日期限制：糯米券在有效期内通用，无限制 - 糯米券接待时间：周一至周五午餐时段11:00-14:30、晚餐时段17:00-21:30，周六周日全天11:00-21:30 - 商家无需预约，直接消费（高峰期间消费需排号等位），咨询请致电商家 - 糯米券不兑现、不找零，不与店内其它优惠同享 - 店内提供免费无线WiFi - 每张糯米券限1人使用，超出收费标准：以店内实际收费为准 - 每次消费不限使用糯米券张数 - 商家对特殊人员提供右侧优惠：1米（不含）以下儿童享受本套餐不另收费，须大人陪同，1位家长限带1名免费就餐儿童 - 本糯米券仅限好伦哥直营餐厅使用 - 所有菜品以店内当日实际提供为准 - 到店仅限堂食，不提供餐前及餐后打包服务"
-    },
-    more_info: null,
-    seebuy: {
-        list: [
-            {
-                deal_id: "1090067",
-                current_price: 10000,
-                market_price: 10600,
-                min_title: "好伦哥双人自助",
-                mid_image: "",
-                poi: {
-                    distance: "",
-                    poiid: "133957",
-                    x: 12963284.371794,
-                    y: 4834065.5431675
-                },
-                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-            },
-            {
-                deal_id: "1087342",
-                current_price: 5100,
-                market_price: 5600,
-                min_title: "好伦哥精品单人自助",
-                mid_image: "",
-                poi: {
-                    distance: "",
-                    poiid: "120877",
-                    x: 12949870.376679,
-                    y: 4832474.5283695
-                },
-                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-            },
-            {
-                deal_id: "1903381",
-                current_price: 3800,
-                market_price: 5000,
-                min_title: "意吻岛西餐厅代金券",
-                mid_image: "ed13633b7c7bf0f736afc31ffe.jpg",
-                poi: {
-                    distance: "",
-                    poiid: "2707978",
-                    x: 13038147.611847,
-                    y: 4859808.7466851
-                },
-                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-            },
-            {
-                deal_id: "1250074",
-                current_price: 4200,
-                market_price: 6800,
-                min_title: "中央红烤肉涮肉自助",
-                mid_image: "",
-                poi: {
-                    distance: "",
-                    poiid: "1481410",
-                    x: 12925992.038534,
-                    y: 4829683.2876713
-                },
-                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-            }
-        ],
-        total: 4,
-        number: 4,
-        tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-    },
-    have_store: 0,
-    comment_info: {
-        average_score: 4.2173,
-        user_num: 329,
-        pic_comment_num: 6,
-        user_comment: [
-            
-        ],
-        expression_label: [
-            {
-                category: "环境",
-                num: 12,
-                type: 1,
-                desc: "环境不错"
-            },
-            {
-                category: "菜品",
-                num: 11,
-                type: 1,
-                desc: "品种丰富"
-            },
-            {
-                category: "总体印象",
-                num: 5,
-                type: 1,
-                desc: "总体印象不错"
-            },
-            {
-                category: "实物团单",
-                num: 4,
-                type: 1,
-                desc: "货品好"
-            },
-            {
-                category: "菜名",
-                num: 3,
-                type: 1,
-                desc: "披萨不错"
-            },
-            {
-                category: "价格",
-                num: 2,
-                type: 1,
-                desc: "价格实惠"
-            },
-            {
-                category: "菜名",
-                num: 2,
-                type: 1,
-                desc: "铁板不错"
-            },
-            {
-                category: "菜名",
-                num: 1,
-                type: 1,
-                desc: "铁板烧不错"
-            },
-            {
-                category: "菜名",
-                num: 1,
-                type: 1,
-                desc: "爆米花还可以"
-            },
-            {
-                category: "菜名",
-                num: 1,
-                type: 1,
-                desc: "冰淇淋好吃"
-            },
-            {
-                category: "菜品",
-                num: 4,
-                type: 0,
-                desc: "味道一般"
-            },
-            {
-                category: "服务",
-                num: 3,
-                type: 0,
-                desc: "服务态度差"
-            },
-            {
-                category: "菜名",
-                num: 2,
-                type: 0,
-                desc: "水果不新鲜"
-            },
-            {
-                category: "环境",
-                num: 2,
-                type: 0,
-                desc: "店面差"
-            },
-            {
-                category: "服务",
-                num: 1,
-                type: 0,
-                desc: "服务人员冷淡"
-            }
-        ],
-        average_score_display: "4.2",
-        label_detail_comment: [
-            {
-                nickname: "1****0",
-                score: 5,
-                update_time: 1411546206,
-                pic_num: 8,
-                superior: 1,
-                content: "味道还可以，环境很不错，服务很好，而且没有限时。",
-                pic_url: [
-                    {
-                        tinyPicUrl: "",
-                        bigPicUrl: ""
-                    }
-                ],
-                reply: [
-                    
-                ]
-            },
-            {
-                nickname: "1****m",
-                score: 5,
-                update_time: 1411704369,
-                pic_num: 3,
-                superior: 0,
-                content: "很好吃！环境也好，同事们一起去的，以后还会来！",
-                pic_url: [
-                    
-                ],
-                reply: [
-                    
-                ]
-            },
-            {
-                nickname: "月****花",
-                score: 5,
-                update_time: 1411641893,
-                pic_num: 2,
-                superior: 0,
-                content: "很划算，赶在抢购的时候买的，不错",
-                pic_url: [
-                    {
-                        tinyPicUrl: "2e73d72902248401a18b86d6faf2.jpg",
-                        bigPicUrl: ""
-                    }
-                ],
-                reply: [
-                    
-                ]
-            }
-        ],
-        comment: 222
-    },
-    merchant_baseinfo: {
-        flag_shop: 3,
-        deal_id: "1090022",
-        city_id: "100010000",
-        shop_num: 4,
-        seller_list: {
-            seller_id: "1830180",
-            seller_name: "好伦哥(平谷店)",
-            seller_phone: "01069985763",
-            seller_address: "北京市平谷区新平北路57-5号2层",
-            subway_distance: null,
-            location_distance: null,
-            lng: 117.1135,
-            lat: 40.1521
-        },
-        seller_id: "1830180",
-        have_content: 1
-    },
-    merchant_phone: null,
-    hot_recommend: {
-        total: 2,
-        list: [
-            {
-                deal_id: "1090067",
-                current_price: 9850,
-                market_price: 10600,
-                min_title: "好伦哥双人自助",
-                group_s: "789a325e60aa919347ea76b99115b1a0"
-            },
-            {
-                deal_id: "1090039",
-                current_price: 14300,
-                market_price: 15900,
-                min_title: "好伦哥超值3人自助",
-                group_s: "789a325e60aa919347ea76b99115b1a0"
-            }
-        ]
-    },
-    timestamp: 1411713873,
-    cached: 0,
-    serverstatus: 0,
-    msg: "success",
-    serverlogid: 2673421428
+errno: 0,
+errmsg: "success",
+data: {
+deal_id: "1984585",
+deal_type: 1,
+rush_buy: {
+market_price: 8000,
+current_price: 2100,
+sell_status: 1,
+favour_info: {
+favour_price: 0,
+text: [ ],
+type: null,
+favour_id: "",
+favour_icon: "",
+hongbao_info: [ ]
+}
+},
+title_about: {
+image: [
+"http://map.baidu.com/maps/services/thumbnails?src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fnuomi%2Fwh%253D470%252C285%2Fsign%3Dbc1b4064133853438c9a8f25a4239c4c%2F4bed2e738bd4b31c0e3027b384d6277f9e2ff8ae.jpg&quality=80&width=470&height=285"
+],
+min_image: "http://e.hiphotos.baidu.com/nuomi/wh%3D230%2C140/sign=7702017ce8f81a4c2667e4cbe41a4c68/1f178a82b9014a908d32f5b5aa773912b31beeae.jpg",
+business_title: "环球国际影城",
+subtitle: "单人影票（含3D）！豪华影厅，劲爆低价",
+remain_time: 1337378,
+sell_count: 1036,
+special_mark: 0,
+tinyurl: "http://www.nuomi.com/deal/ykyfo3wz.html?from=fr_na_deal"
+},
+safeguard_info: [
+{
+icon_id: 1,
+safeguard_name: "未消费，随便退",
+safeguard_web: "http://m.nuomi.com/webapp/na/staticrefund?from=fr_na_static"
+}
+],
+notice: {
+notice: ""
+},
+buy_content: {
+content_type: 0,
+buy_content: "-2D/3D通兑电影票一张(1张,价值80元)",
+have_buy_details: 1
+},
+consumer_tips: {
+consumer_type: 0,
+consumer_tips: "糯米券有效期: 2014年09月25日至2014年10月09日 糯米券接待日期限制: 仅限法定节假日使用糯米券 糯米券接待时间: 10:00-次日02:00 是否需要预约: 商家无需预约，直接消费（高峰期间消费需排号等位） 预约逾期保留: 预约位逾期不保留，请准时 是否可以享受其他优惠: 团购用户暂不享受店内其他优惠 停车位收费标准: 提供免费停车位，数量40个 店内是否有网络: 店内提供免费无线WIFI 2014年10月1日至2014年10月7日 使用3D眼镜，需交押金10元/副 十一黄金周节假日到店所有影片无需加钱 商家对特殊人员提供右侧优惠：无优惠 购买须知：为回馈新老客户环球国际影城和百度糯米独家合作十一黄金周特价电影票，仅适用于十一假期期间七天，全场2D/3D不加价，限时抢购欢乐多多"
+},
+more_info: null,
+seebuy: {
+list: [
+{
+deal_id: "1122605",
+current_price: 2600,
+market_price: 8000,
+min_title: "环球电影院单人影票",
+mid_image: "http://nuomi.xnimg.cn/upload/deal/2014/6/V_T/1122605-imymqn4vng-3351402127815938.jpg",
+poi: {
+distance: "",
+poiid: "1901915",
+x: 12912499.90694,
+y: 4794705.2829134
+},
+tuan_s: "a27c04a2254adccf3a11c628c7ed9c48"
+},
+{
+deal_id: "1497332",
+current_price: 2800,
+market_price: 4000,
+min_title: "良乡影院单人票1张",
+mid_image: "http://nuomi.xnimg.cn/upload/deal/2014/8/V_T/1497332-y77c9e573p-16821260998650530.jpg",
+poi: {
+distance: "",
+poiid: "99617",
+x: 12929688.233718,
+y: 4801292.9123217
+},
+tuan_s: "a27c04a2254adccf3a11c628c7ed9c48"
+},
+{
+deal_id: "1373437",
+current_price: 3500,
+market_price: 10000,
+min_title: "燕山影剧院单人票",
+mid_image: "http://nuomi.xnimg.cn/upload/deal/2014/7/V_T/1373437-xctp4ctyhv-15187754443507346.jpg",
+poi: {
+distance: "",
+poiid: "1497431",
+x: 12909628.391333,
+y: 4799692.3405203
+},
+tuan_s: "a27c04a2254adccf3a11c628c7ed9c48"
+},
+{
+deal_id: "1167836",
+current_price: 9800,
+market_price: 24800,
+min_title: "环球娱乐世界杯玩吧餐",
+mid_image: "http://nuomi.xnimg.cn/upload/deal/2014/6/V_T/1167836-jw9cw4bztc-13166472414595179.jpg",
+poi: {
+distance: "",
+poiid: "2198564",
+x: 12912499.90694,
+y: 4794705.2829134
+},
+tuan_s: "a27c04a2254adccf3a11c628c7ed9c48"
+}
+],
+total: 4,
+number: 4,
+tuan_s: "a27c04a2254adccf3a11c628c7ed9c48"
+},
+have_store: 0,
+comment_info: {
+average_score: 4.806,
+user_num: 67,
+pic_comment_num: 11,
+user_comment: [ ],
+expression_label: [
+{
+category: "环境",
+num: 9,
+type: 1,
+desc: "环境不错"
+},
+{
+category: "价格",
+num: 6,
+type: 1,
+desc: "价格实惠"
+},
+{
+category: "优惠活动",
+num: 6,
+type: 1,
+desc: "团购划算"
+},
+{
+category: "价格",
+num: 5,
+type: 1,
+desc: "性价比高"
+},
+{
+category: "环境",
+num: 3,
+type: 1,
+desc: "店内设施完善"
+},
+{
+category: "环境",
+num: 1,
+type: 1,
+desc: "店面不错"
+},
+{
+category: "服务",
+num: 1,
+type: 1,
+desc: "服务态度好"
+}
+],
+average_score_display: "4.8",
+label_detail_comment: [
+{
+nickname: "1****5",
+score: 5,
+update_time: 1412345080,
+pic_num: 4,
+superior: 0,
+content: "挺好，就是得提前去不然就是第一排座位",
+pic_url: [ ],
+reply: [ ]
+},
+{
+nickname: "水****风",
+score: 5,
+update_time: 1412326339,
+pic_num: 2,
+superior: 0,
+content: "环境不错，价格亲民！就是电梯坏了一边，爆米花的量太少了",
+pic_url: [ ],
+reply: [ ]
+},
+{
+nickname: "1****4",
+score: 5,
+update_time: 1412156658,
+pic_num: 2,
+superior: 0,
+content: "最便宜的团购，很开森！心花路放很好看",
+pic_url: [ ],
+reply: [ ]
+}
+],
+comment: 55
+},
+merchant_baseinfo: {
+flag_shop: 3,
+deal_id: "1984585",
+city_id: "100010000",
+shop_num: 1,
+seller_list: {
+seller_id: "2198564",
+seller_name: "环球娱乐城",
+seller_phone: "01061375512",
+seller_address: "北京市房山区兴房大街38号城关华冠欢乐城四层酒吧",
+subway_distance: null,
+location_distance: null,
+lng: 115.9937,
+lat: 39.6987
+},
+seller_id: "2198564",
+have_content: 1
+},
+merchant_phone: null,
+hot_recommend: {
+total: 2,
+list: [
+{
+deal_id: "1167836",
+current_price: 9800,
+market_price: 24800,
+min_title: "环球娱乐世界杯玩吧餐",
+group_s: "92194f3e64004fa65e9ef5d9dd754d86"
+},
+{
+deal_id: "1167465",
+current_price: 9600,
+market_price: 22800,
+min_title: "环球娱乐世界杯酒吧餐",
+group_s: "92194f3e64004fa65e9ef5d9dd754d86"
+}
+]
+}
+},
+timestamp: 1412742621,
+cached: 0,
+serverstatus: 0,
+msg: "success",
+serverlogid: 1821432072
 }
