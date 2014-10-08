@@ -1,312 +1,310 @@
 {
     errno: 0,
     errmsg: "success",
-    data: {
-        deal_id: "1090022",
-        deal_type: 1,
-        rush_buy: {
-            market_price: 5300,
-            current_price: 4800,
-            sell_status: 1,
-            favour_info: {
-                favour_price: null,
-                text: [
+    deal_id: "1090022",
+    deal_type: 1,
+    rush_buy: {
+        market_price: 5300,
+        current_price: 4800,
+        sell_status: 1,
+        favour_info: {
+            favour_price: null,
+            text: [
+                
+            ],
+            type: null,
+            favour_id: "",
+            favour_icon: "",
+            hongbao_info: [
+                
+            ]
+        }
+    },
+    title_about: {
+        image: [
+            ""
+        ],
+        min_image: "%3D230%2C140",
+        business_title: "好伦哥",
+        subtitle: "超值单人自助！纯手工制作的经典比萨！",
+        remain_time: 6156927,
+        sell_count: 9038,
+        special_mark: 1,
+        tinyurl: ""
+    },
+    safeguard_info: [
+        {
+            icon_id: 1,
+            safeguard_name: "未消费，随便退",
+            safeguard_web: ""
+        }
+    ],
+    notice: {
+        notice: ""
+    },
+    buy_content: {
+        content_type: 0,
+        buy_content: "- 超值单人自助（1份，价值53元）",
+        have_buy_details: 1
+    },
+    consumer_tips: {
+        consumer_type: 0,
+        consumer_tips: "- 糯米券有效期：2014年06月07日至2014年12月06日 - 糯米券接待日期限制：糯米券在有效期内通用，无限制 - 糯米券接待时间：周一至周五午餐时段11:00-14:30、晚餐时段17:00-21:30，周六周日全天11:00-21:30 - 商家无需预约，直接消费（高峰期间消费需排号等位），咨询请致电商家 - 糯米券不兑现、不找零，不与店内其它优惠同享 - 店内提供免费无线WiFi - 每张糯米券限1人使用，超出收费标准：以店内实际收费为准 - 每次消费不限使用糯米券张数 - 商家对特殊人员提供右侧优惠：1米（不含）以下儿童享受本套餐不另收费，须大人陪同，1位家长限带1名免费就餐儿童 - 本糯米券仅限好伦哥直营餐厅使用 - 所有菜品以店内当日实际提供为准 - 到店仅限堂食，不提供餐前及餐后打包服务"
+    },
+    more_info: null,
+    seebuy: {
+        list: [
+            {
+                deal_id: "1090067",
+                current_price: 10000,
+                market_price: 10600,
+                min_title: "好伦哥双人自助",
+                mid_image: "",
+                poi: {
+                    distance: "",
+                    poiid: "133957",
+                    x: 12963284.371794,
+                    y: 4834065.5431675
+                },
+                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
+            },
+            {
+                deal_id: "1087342",
+                current_price: 5100,
+                market_price: 5600,
+                min_title: "好伦哥精品单人自助",
+                mid_image: "",
+                poi: {
+                    distance: "",
+                    poiid: "120877",
+                    x: 12949870.376679,
+                    y: 4832474.5283695
+                },
+                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
+            },
+            {
+                deal_id: "1903381",
+                current_price: 3800,
+                market_price: 5000,
+                min_title: "意吻岛西餐厅代金券",
+                mid_image: "ed13633b7c7bf0f736afc31ffe.jpg",
+                poi: {
+                    distance: "",
+                    poiid: "2707978",
+                    x: 13038147.611847,
+                    y: 4859808.7466851
+                },
+                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
+            },
+            {
+                deal_id: "1250074",
+                current_price: 4200,
+                market_price: 6800,
+                min_title: "中央红烤肉涮肉自助",
+                mid_image: "",
+                poi: {
+                    distance: "",
+                    poiid: "1481410",
+                    x: 12925992.038534,
+                    y: 4829683.2876713
+                },
+                tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
+            }
+        ],
+        total: 4,
+        number: 4,
+        tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
+    },
+    have_store: 0,
+    comment_info: {
+        average_score: 4.2173,
+        user_num: 329,
+        pic_comment_num: 6,
+        user_comment: [
+            
+        ],
+        expression_label: [
+            {
+                category: "环境",
+                num: 12,
+                type: 1,
+                desc: "环境不错"
+            },
+            {
+                category: "菜品",
+                num: 11,
+                type: 1,
+                desc: "品种丰富"
+            },
+            {
+                category: "总体印象",
+                num: 5,
+                type: 1,
+                desc: "总体印象不错"
+            },
+            {
+                category: "实物团单",
+                num: 4,
+                type: 1,
+                desc: "货品好"
+            },
+            {
+                category: "菜名",
+                num: 3,
+                type: 1,
+                desc: "披萨不错"
+            },
+            {
+                category: "价格",
+                num: 2,
+                type: 1,
+                desc: "价格实惠"
+            },
+            {
+                category: "菜名",
+                num: 2,
+                type: 1,
+                desc: "铁板不错"
+            },
+            {
+                category: "菜名",
+                num: 1,
+                type: 1,
+                desc: "铁板烧不错"
+            },
+            {
+                category: "菜名",
+                num: 1,
+                type: 1,
+                desc: "爆米花还可以"
+            },
+            {
+                category: "菜名",
+                num: 1,
+                type: 1,
+                desc: "冰淇淋好吃"
+            },
+            {
+                category: "菜品",
+                num: 4,
+                type: 0,
+                desc: "味道一般"
+            },
+            {
+                category: "服务",
+                num: 3,
+                type: 0,
+                desc: "服务态度差"
+            },
+            {
+                category: "菜名",
+                num: 2,
+                type: 0,
+                desc: "水果不新鲜"
+            },
+            {
+                category: "环境",
+                num: 2,
+                type: 0,
+                desc: "店面差"
+            },
+            {
+                category: "服务",
+                num: 1,
+                type: 0,
+                desc: "服务人员冷淡"
+            }
+        ],
+        average_score_display: "4.2",
+        label_detail_comment: [
+            {
+                nickname: "1****0",
+                score: 5,
+                update_time: 1411546206,
+                pic_num: 8,
+                superior: 1,
+                content: "味道还可以，环境很不错，服务很好，而且没有限时。",
+                pic_url: [
+                    {
+                        tinyPicUrl: "",
+                        bigPicUrl: ""
+                    }
+                ],
+                reply: [
+                    
+                ]
+            },
+            {
+                nickname: "1****m",
+                score: 5,
+                update_time: 1411704369,
+                pic_num: 3,
+                superior: 0,
+                content: "很好吃！环境也好，同事们一起去的，以后还会来！",
+                pic_url: [
                     
                 ],
-                type: null,
-                favour_id: "",
-                favour_icon: "",
-                hongbao_info: [
+                reply: [
+                    
+                ]
+            },
+            {
+                nickname: "月****花",
+                score: 5,
+                update_time: 1411641893,
+                pic_num: 2,
+                superior: 0,
+                content: "很划算，赶在抢购的时候买的，不错",
+                pic_url: [
+                    {
+                        tinyPicUrl: "2e73d72902248401a18b86d6faf2.jpg",
+                        bigPicUrl: ""
+                    }
+                ],
+                reply: [
                     
                 ]
             }
-        },
-        title_about: {
-            image: [
-                "http://e.hiphotos.baidu.com/nuomi/wh%3D230%2C140/sign=d525777923a446237e9fad60ab125e3f/5bafa40f4bfbfbed13633b7c7bf0f736afc31ffe.jpg"
-            ],
-            min_image: "",
-            business_title: "好伦哥",
-            subtitle: "超值单人自助！纯手工制作的经典比萨！",
-            remain_time: 6156927,
-            sell_count: 9038,
-            special_mark: 1,
-            tinyurl: ""
-        },
-        safeguard_info: [
-            {
-                icon_id: 1,
-                safeguard_name: "未消费，随便退",
-                safeguard_web: ""
-            }
         ],
-        notice: {
-            notice: ""
-        },
-        buy_content: {
-            content_type: 0,
-            buy_content: "- 超值单人自助（1份，价值53元）",
-            have_buy_details: 1
-        },
-        consumer_tips: {
-            consumer_type: 0,
-            consumer_tips: "- 糯米券有效期：2014年06月07日至2014年12月06日 - 糯米券接待日期限制：糯米券在有效期内通用，无限制 - 糯米券接待时间：周一至周五午餐时段11:00-14:30、晚餐时段17:00-21:30，周六周日全天11:00-21:30 - 商家无需预约，直接消费（高峰期间消费需排号等位），咨询请致电商家 - 糯米券不兑现、不找零，不与店内其它优惠同享 - 店内提供免费无线WiFi - 每张糯米券限1人使用，超出收费标准：以店内实际收费为准 - 每次消费不限使用糯米券张数 - 商家对特殊人员提供右侧优惠：1米（不含）以下儿童享受本套餐不另收费，须大人陪同，1位家长限带1名免费就餐儿童 - 本糯米券仅限好伦哥直营餐厅使用 - 所有菜品以店内当日实际提供为准 - 到店仅限堂食，不提供餐前及餐后打包服务"
-        },
-        more_info: null,
-        seebuy: {
-            list: [
-                {
-                    deal_id: "1090067",
-                    current_price: 10000,
-                    market_price: 10600,
-                    min_title: "好伦哥双人自助",
-                    mid_image: "",
-                    poi: {
-                        distance: "",
-                        poiid: "133957",
-                        x: 12963284.371794,
-                        y: 4834065.5431675
-                    },
-                    tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-                },
-                {
-                    deal_id: "1087342",
-                    current_price: 5100,
-                    market_price: 5600,
-                    min_title: "好伦哥精品单人自助",
-                    mid_image: "",
-                    poi: {
-                        distance: "",
-                        poiid: "120877",
-                        x: 12949870.376679,
-                        y: 4832474.5283695
-                    },
-                    tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-                },
-                {
-                    deal_id: "1903381",
-                    current_price: 3800,
-                    market_price: 5000,
-                    min_title: "意吻岛西餐厅代金券",
-                    mid_image: "ed13633b7c7bf0f736afc31ffe.jpg",
-                    poi: {
-                        distance: "",
-                        poiid: "2707978",
-                        x: 13038147.611847,
-                        y: 4859808.7466851
-                    },
-                    tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-                },
-                {
-                    deal_id: "1250074",
-                    current_price: 4200,
-                    market_price: 6800,
-                    min_title: "中央红烤肉涮肉自助",
-                    mid_image: "",
-                    poi: {
-                        distance: "",
-                        poiid: "1481410",
-                        x: 12925992.038534,
-                        y: 4829683.2876713
-                    },
-                    tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-                }
-            ],
-            total: 4,
-            number: 4,
-            tuan_s: "8a3e231ea13c2f91d5dd39a65efcc9d0"
-        },
-        have_store: 0,
-        comment_info: {
-            average_score: 4.2173,
-            user_num: 329,
-            pic_comment_num: 6,
-            user_comment: [
-                
-            ],
-            expression_label: [
-                {
-                    category: "环境",
-                    num: 12,
-                    type: 1,
-                    desc: "环境不错"
-                },
-                {
-                    category: "菜品",
-                    num: 11,
-                    type: 1,
-                    desc: "品种丰富"
-                },
-                {
-                    category: "总体印象",
-                    num: 5,
-                    type: 1,
-                    desc: "总体印象不错"
-                },
-                {
-                    category: "实物团单",
-                    num: 4,
-                    type: 1,
-                    desc: "货品好"
-                },
-                {
-                    category: "菜名",
-                    num: 3,
-                    type: 1,
-                    desc: "披萨不错"
-                },
-                {
-                    category: "价格",
-                    num: 2,
-                    type: 1,
-                    desc: "价格实惠"
-                },
-                {
-                    category: "菜名",
-                    num: 2,
-                    type: 1,
-                    desc: "铁板不错"
-                },
-                {
-                    category: "菜名",
-                    num: 1,
-                    type: 1,
-                    desc: "铁板烧不错"
-                },
-                {
-                    category: "菜名",
-                    num: 1,
-                    type: 1,
-                    desc: "爆米花还可以"
-                },
-                {
-                    category: "菜名",
-                    num: 1,
-                    type: 1,
-                    desc: "冰淇淋好吃"
-                },
-                {
-                    category: "菜品",
-                    num: 4,
-                    type: 0,
-                    desc: "味道一般"
-                },
-                {
-                    category: "服务",
-                    num: 3,
-                    type: 0,
-                    desc: "服务态度差"
-                },
-                {
-                    category: "菜名",
-                    num: 2,
-                    type: 0,
-                    desc: "水果不新鲜"
-                },
-                {
-                    category: "环境",
-                    num: 2,
-                    type: 0,
-                    desc: "店面差"
-                },
-                {
-                    category: "服务",
-                    num: 1,
-                    type: 0,
-                    desc: "服务人员冷淡"
-                }
-            ],
-            average_score_display: "4.2",
-            label_detail_comment: [
-                {
-                    nickname: "1****0",
-                    score: 5,
-                    update_time: 1411546206,
-                    pic_num: 8,
-                    superior: 1,
-                    content: "味道还可以，环境很不错，服务很好，而且没有限时。",
-                    pic_url: [
-                        {
-                            tinyPicUrl: "",
-                            bigPicUrl: ""
-                        }
-                    ],
-                    reply: [
-                        
-                    ]
-                },
-                {
-                    nickname: "1****m",
-                    score: 5,
-                    update_time: 1411704369,
-                    pic_num: 3,
-                    superior: 0,
-                    content: "很好吃！环境也好，同事们一起去的，以后还会来！",
-                    pic_url: [
-                        
-                    ],
-                    reply: [
-                        
-                    ]
-                },
-                {
-                    nickname: "月****花",
-                    score: 5,
-                    update_time: 1411641893,
-                    pic_num: 2,
-                    superior: 0,
-                    content: "很划算，赶在抢购的时候买的，不错",
-                    pic_url: [
-                        {
-                            tinyPicUrl: "2e73d72902248401a18b86d6faf2.jpg",
-                            bigPicUrl: ""
-                        }
-                    ],
-                    reply: [
-                        
-                    ]
-                }
-            ],
-            comment: 222
-        },
-        merchant_baseinfo: {
-            flag_shop: 3,
-            deal_id: "1090022",
-            city_id: "100010000",
-            shop_num: 4,
-            seller_list: {
-                seller_id: "1830180",
-                seller_name: "好伦哥(平谷店)",
-                seller_phone: "01069985763",
-                seller_address: "北京市平谷区新平北路57-5号2层",
-                subway_distance: null,
-                location_distance: null,
-                lng: 117.1135,
-                lat: 40.1521
-            },
+        comment: 222
+    },
+    merchant_baseinfo: {
+        flag_shop: 3,
+        deal_id: "1090022",
+        city_id: "100010000",
+        shop_num: 4,
+        seller_list: {
             seller_id: "1830180",
-            have_content: 1
+            seller_name: "好伦哥(平谷店)",
+            seller_phone: "01069985763",
+            seller_address: "北京市平谷区新平北路57-5号2层",
+            subway_distance: null,
+            location_distance: null,
+            lng: 117.1135,
+            lat: 40.1521
         },
-        merchant_phone: null,
-        hot_recommend: {
-            total: 2,
-            list: [
-                {
-                    deal_id: "1090067",
-                    current_price: 9850,
-                    market_price: 10600,
-                    min_title: "好伦哥双人自助",
-                    group_s: "789a325e60aa919347ea76b99115b1a0"
-                },
-                {
-                    deal_id: "1090039",
-                    current_price: 14300,
-                    market_price: 15900,
-                    min_title: "好伦哥超值3人自助",
-                    group_s: "789a325e60aa919347ea76b99115b1a0"
-                }
-            ]
-        }
+        seller_id: "1830180",
+        have_content: 1
+    },
+    merchant_phone: null,
+    hot_recommend: {
+        total: 2,
+        list: [
+            {
+                deal_id: "1090067",
+                current_price: 9850,
+                market_price: 10600,
+                min_title: "好伦哥双人自助",
+                group_s: "789a325e60aa919347ea76b99115b1a0"
+            },
+            {
+                deal_id: "1090039",
+                current_price: 14300,
+                market_price: 15900,
+                min_title: "好伦哥超值3人自助",
+                group_s: "789a325e60aa919347ea76b99115b1a0"
+            }
+        ]
     },
     timestamp: 1411713873,
     cached: 0,
