@@ -28,7 +28,7 @@ ModelNetworkClient 主要提供以下功能：
         2. 输入命令
            python AutoJSONModelShell.py
            
-        3. 根据提示输入完成的GET Url
+        3. 根据提示输入相关内容：1.Full GET Url 2.Json Content
         
         4. model成功生成到和AutoJSONModelShell.py同级目录下
     
