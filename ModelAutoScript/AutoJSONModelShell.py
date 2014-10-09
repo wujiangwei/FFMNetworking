@@ -5,6 +5,7 @@ import json
 import re
 import os
 import urllib2
+import sys
 
 #config file,your can change anything here
 yourProjectPrefix = 'JF'        #default
@@ -39,15 +40,46 @@ def getKeyWordByUrl(url):
 
 def generateModelByHttpGet():
     rootPath = os.getcwd()
+    content = ''
+    keyWord = ''
+    flag = 0
+    flag = raw_input("选择输入的内容类型\n HTTP GET Url【1】\n 或者\n 返回的数据内容【2】\n")
+    while (cmp('\n', flag) == 0 or len(flag) == 0):
+        flag = raw_input("输入【1 == URL】【2 == JSON内容】")
+    while(int(flag) != 1 and int(flag) != 2):
+        flag = raw_input("类型错误，重新输入")
 
-    getUrl = raw_input("输入完整的GET Request Url: ")
-    keyWord = getKeyWordByUrl(getUrl)
+    flag = int(flag)
+    if(flag == 1):
+        getUrl = raw_input("输入完整的GET Request Url: ")
+        while(len(getUrl) == 0):
+            getUrl = raw_input("url为空，请重新输入")
+        keyWord = getKeyWordByUrl(getUrl)
+    else:
+        keyWord = raw_input("输入Model名称: ")
+        while(len(keyWord) == 0):
+            keyWord = raw_input("model名词为空，请重新输入")
+        print "输入Json内容: \n 完成后以回车结束"
+        while 1:
+            # 获得用户输入
+            line = sys.stdin.readline()
+            if (len(content) > 0 and cmp('\n', line) == 0):
+                break
+            else:
+                line = cleanLineForJsonDecode(line)
+                content = content + line
+
     if(len(keyWord) > 0):
         os.chdir(rootPath)
 
-        req = urllib2.Request(getUrl)
-        res_data = urllib2.urlopen(req)
-        resData = res_data.read()
+
+        resData = ''
+        if(flag == 1):
+            req = urllib2.Request(getUrl)
+            res_data = urllib2.urlopen(req)
+            resData = res_data.read()
+        else:
+            resData = content
 
         decodejson = json.loads(resData)
 
@@ -60,6 +92,24 @@ def generateModelByHttpGet():
 
         generationFileByDict(keyWord, transferJsonToDic(decodejson), 0, 1)
         print '脚本执行结束，请复制model文件夹到您需要的地方'
+    else:
+        print 'model名词为空，无法从 url解析或者 未手动输入'
+
+def cleanLineForJsonDecode(line):
+    lineStr = line.strip('\n')
+    lineStr = line.strip()
+    if(lineStr.count(':') >= 1):
+        #踢出““数据
+        mLocation = lineStr.find('"')
+        if(mLocation != 0):
+            Location = lineStr.find(':')
+            sufStr = lineStr[Location :]
+            dealStr = lineStr[: Location]
+            #TODO:"如果这边key已经带了""就不要加了
+            dealStr = "\"" + dealStr + "\""
+            lineStr = dealStr + sufStr
+        lineStr.replace("'", "\"")
+    return lineStr
 
 #parse by file content
 #废弃，使用generateModelByHttpGet
@@ -75,19 +125,7 @@ def startParseFiles():
             fileFo = open(fileName, 'r')
             easyFileContent = ''
             for line in fileFo.readlines():
-                lineStr = line.strip('\n')
-                lineStr = line.strip()
-                if(lineStr.count(':') >= 1):
-                    #踢出““数据
-                    mLocation = lineStr.find('"')
-                    if(mLocation != 0):
-                        Location = lineStr.find(':')
-                        sufStr = lineStr[Location :]
-                        dealStr = lineStr[: Location]
-                        #TODO:"如果这边key已经带了""就不要加了
-                        dealStr = "\"" + dealStr + "\""
-                        lineStr = dealStr + sufStr
-                    lineStr.replace("'", "\"")
+                lineStr = cleanLineForJsonDecode(line)
                 easyFileContent = easyFileContent + lineStr
 
             decodejson = json.loads(easyFileContent)
@@ -253,8 +291,6 @@ def transferJsonToDic(decodejson):
 
     #dict
     if(isinstance(decodejson, dict)):
-        if(isBaiduNuomi > 0):
-            return decodejson['data']
         return decodejson
 
     return {'newParseError' : 'content is invalid'}
