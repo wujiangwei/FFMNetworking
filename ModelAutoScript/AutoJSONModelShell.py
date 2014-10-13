@@ -191,7 +191,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
             #@end
             OjectCFile.write('\n@protocol ' + className)
             OjectCFile.write('\n\n')
-            OjectCFile.write('@end')
+            OjectCFile.write('@end\n\n')
 
         OjectCFile.write(getHeaderFileStr(aDict))
         OjectCFile.write('\n')
