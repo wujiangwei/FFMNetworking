@@ -11,14 +11,15 @@ import sys
 yourProjectPrefix = 'JF'        #default
 yourModelBaseClassName = 'JSONModel'    #default
 
-#here just for Baidu Nuomi
-isBaiduNuomi = 0
-if(isBaiduNuomi > 0):
-    yourProjectPrefix = 'BDN'
-    yourModelBaseClassName = 'BDNBaseJSONModel'
+#简易的key长度 —— 用于防止各个模块model重复
+#如果小于easyKeyStrCount，则在sub model前加上根model的Key
+easyKeyStrCount = 6
 
-#not support now
-ignoreKeys = ['serverstatus', 'serverlogid']
+#定制化个性model数据结构
+isCustomStructModel = 0
+if(isCustomStructModel == 1):
+    yourProjectPrefix = 'LV'
+    yourModelBaseClassName = 'SomeBaseJSONModel'
 
 #default key for list object
 #warning,if your use JFNetworkingClient,do not change this default key
@@ -28,6 +29,8 @@ defaultListKey = 'kJFObjectDefaultArrayKey'
 jsonFileList = []   #废弃，使用实时请求的方式
 
 #parse by get request url
+
+rootModelName = ''
 
 def getKeyWordByUrl(url):
     ret = ''
@@ -54,7 +57,13 @@ def generateModelByHttpGet():
         getUrl = raw_input("输入完整的GET Request Url: ")
         while(len(getUrl) == 0):
             getUrl = raw_input("url为空，请重新输入")
-        keyWord = getKeyWordByUrl(getUrl)
+
+        keyWord = raw_input("输入Model名称(从url获取输入none): ")
+        while(len(keyWord) == 0):
+            keyWord = raw_input("model名词为空，请重新输入")
+
+        if(keyWord == 'none'):
+            keyWord = getKeyWordByUrl(getUrl)
     else:
         keyWord = raw_input("输入Model名称: ")
         while(len(keyWord) == 0):
@@ -69,9 +78,10 @@ def generateModelByHttpGet():
                 line = cleanLineForJsonDecode(line)
                 content = content + line
 
-    if(len(keyWord) > 0):
+    global rootModelName
+    rootModelName = keyWord
+    if(len(rootModelName) > 0):
         os.chdir(rootPath)
-
 
         resData = ''
         if(flag == 1):
@@ -85,12 +95,12 @@ def generateModelByHttpGet():
 
         rootPath = os.getcwd()
         try:
-            os.makedirs(keyWord)
+            os.makedirs(rootModelName)
         except:
             tt = ''
-        os.chdir(keyWord)
+        os.chdir(rootModelName)
 
-        generationFileByDict(keyWord, transferJsonToDic(decodejson), 0, 1)
+        generationFileByDict(rootModelName, transferJsonToDic(decodejson), 0, 1)
         print '脚本执行结束，请复制model文件夹到您需要的地方'
     else:
         print 'model名词为空，无法从 url解析或者 未手动输入'
@@ -166,7 +176,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
     if(needGenFile > 0):
         mFileName = className + '.m'
         OjectCMFile = open(mFileName, 'w')
-        OjectCMFile.write('//\n//Auto ' + className + '.m File \n//From Python Script Kevin\n//\n//https://github.com/wujiangwei/ModelNetworkClient\n\n')
+        OjectCMFile.write('//\n//Auto ' + className + '.m File \n//From Python Script Kevin\n//\n\n')
         OjectCMFile.write('#import \"' + className + '.h\"\n\n')
         OjectCMFile.write('@implementation ' + className)
         OjectCMFile.write('\n')
@@ -183,7 +193,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
 
     #write .h File header
     if(needGenFile > 0):
-        OjectCFile.write('//\n// Auto Create JsonModel File\n// ' + className + '.h' +  '\n//\n// Github: https://github.com/wujiangwei/ModelNetworkClient\n\n\n')
+        OjectCFile.write('//\n// Auto Create JsonModel File\n// ' + className + '.h' +  '\n//\n//\n\n')
         OjectCFile.write('#import "JSONModel.h"\n')
         #need protocol
         if(needDicKey == 2):
@@ -191,7 +201,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
             #@end
             OjectCFile.write('\n@protocol ' + className)
             OjectCFile.write('\n\n')
-            OjectCFile.write('@end\n\n')
+            OjectCFile.write('@end\n')
 
         OjectCFile.write(getHeaderFileStr(aDict))
         OjectCFile.write('\n')
@@ -212,10 +222,10 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
         #@property (nonatomic, strong)albumListItemModel<Optional> *testModel;
 
         if(isinstance(value, list) or isinstance(value, tuple)):
-            protocolKeyJsonM = generationFileByDict(fileName + key, parseDicFromList(value), 2, 0)
+            protocolKeyJsonM = generationFileByDict(getFileKey(key), parseDicFromList(value), 2, 0)
             LineContent = ''
             if(len(protocolKeyJsonM) > 0):
-                generationFileByDict(key, parseDicFromList(value), 2, 1)
+                generationFileByDict(getFileKey(key), parseDicFromList(value), 2, 1)
                 LineContent = '\n@property (nonatomic, strong) ' + ListKey + '<Optional, ' + protocolKeyJsonM + '> *' + key + ';\n'
             else:
                 LineContent = '@property (nonatomic, strong) ' + ListKey + '<Optional> *' + key + ';\n'
@@ -229,7 +239,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
                 OjectCFile.write(LineContent)
 
         elif(isinstance(value, dict)):
-            objectKey = generationFileByDict(key, value, 1, 1)
+            objectKey = generationFileByDict(getFileKey(key), value, 1, 1)
             LineContent = '\n@property (nonatomic, strong) ' + objectKey + '<Optional> *' + key + ';\n'
             if(needGenFile > 0):
                 OjectCFile.write(LineContent)
@@ -252,23 +262,40 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
         OjectCFile.close()
     return className
 
+def refineKey(key):
+    key = FirstStrBigger(key)
+    listSubKey = key.split('_')
+    retKey = ''
+    for subKey in listSubKey:
+        subKey = FirstStrBigger(subKey)
+        retKey = retKey + subKey
+
+    return retKey
+
+def getFileKey(key):
+    global rootModelName
+    global easyKeyStrCount
+    if(len(key) <= easyKeyStrCount):
+        return rootModelName + refineKey(key)
+    return refineKey(key)
 
 def getHeaderFileStr(aDict):
     importStr = ''
     if(isinstance(aDict, list) or isinstance(aDict, tuple)):
         return ""
 
+
     for key in aDict:
 
         value = aDict[key]
         if(isinstance(value, list) or isinstance(value, tuple)):
-            protocolKeyJsonM = generationFileByDict(key, parseDicFromList(value), 2, 0)
+            protocolKeyJsonM = generationFileByDict(getFileKey(key), parseDicFromList(value), 2, 0)
             LineContent = ''
             if(len(protocolKeyJsonM) > 0):
                 importStr = importStr + '#import "' + protocolKeyJsonM + '.h"\n'
 
         elif(isinstance(value, dict)):
-            objectKey = generationFileByDict(key, value, 1, 1)
+            objectKey = generationFileByDict(getFileKey(key), value, 1, 0)
             importStr = importStr + '#import "' + objectKey + '.h"\n'
 
     return importStr
@@ -291,6 +318,11 @@ def transferJsonToDic(decodejson):
 
     #dict
     if(isinstance(decodejson, dict)):
+        #此处可以更改json数据结构，可以定制化model
+        if(isCustomStructModel == 1):
+            for key in decodejson:
+                if(key == 'data'):
+                    return decodejson['data']
         return decodejson
 
     return {'newParseError' : 'content is invalid'}
