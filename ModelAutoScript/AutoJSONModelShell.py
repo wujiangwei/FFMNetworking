@@ -212,7 +212,7 @@ def generationFileByDict(fileName, aDict, needDicKey, needGenFile):
         #@property (nonatomic, strong)albumListItemModel<Optional> *testModel;
 
         if(isinstance(value, list) or isinstance(value, tuple)):
-            protocolKeyJsonM = generationFileByDict(key, parseDicFromList(value), 2, 0)
+            protocolKeyJsonM = generationFileByDict(fileName + key, parseDicFromList(value), 2, 0)
             LineContent = ''
             if(len(protocolKeyJsonM) > 0):
                 generationFileByDict(key, parseDicFromList(value), 2, 1)
