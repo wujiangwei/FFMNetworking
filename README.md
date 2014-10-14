@@ -171,49 +171,27 @@ ModelNetworkClient 主要提供以下功能：
   
   比如：当你的请求中 存在 timestamps时，每次基于path产生的缓存路径都会不一样，所以此时的缓存是无效的，你需要在产生path前，让类似于timestamps这种字段设置为忽略，这样cache path就不会包含这个字段
   
-    3.如果你的服务器返回的数据是框架性的数据，使用JSONModel起来需要重复的建立很多文件，本模块提供了数据预处理
+  3.如果你的服务器返回的数据是框架性的数据，使用JSONModel起来需要重复的建立很多文件，本模块提供了数据预处理
   
   
   **** JSONModel 说明 ****
-  //JSONModel讲解：Optional 代表这个字段，服务器可以不返回，Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
+  //JSONModel讲解：
+  Optional 代表这个字段，服务器可以不返回
+  Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
     
     JSONModel示例代码以及说明
     
-    1.定义你的返回Model：HomeResonseModel:
-    
-    @interface HomeResonseModel : BaseResponseJsonModel
+ 
 
     @property (nonatomic, strong)NSNumber<Optional> *errorId;   //number类型
     @property (nonatomic, strong)NSString<Optional> *homeString;//字符串
     @property (nonatomic, strong)homeListItemJsonModel<Optional> *homeObject;   //对象
     
-    //协议homeListItemJsonModel，代表了，这个数组里的对象是什么
-    //如果是基本类型，无需写homeListItemJsonModel，但是你要知道是NSNumber还是NSString~
+    //协议homeListItemJsonModel是一个空协议，代表了，这个数组里的对象类型是什么
     @property (nonatomic, strong)NSArray<Optional, homeListItemJsonModel> *homeList;    //数组
+    
+    //如果是基本类型，无需写homeListItemJsonModel，默认是NSString~
+    @property (nonatomic, strong)NSArray<Optional> *stringArray;    //数组
 
-    @end
-    
-    @implementation HomeResonseModel
-
-    //假数据测试代码
-    - (NSString *)homeString
-    {
-        //当你需要伪造一些测试数据时，无需去找服务器修改字段
-        //直接在model此处，写上你的本地测试数据
-        //记得测试完毕后，删除该代码。
-    
-        //你也可以自定义数据的返回内容,根据原来的数据~
-        return @“测试数据”;
-    }
-    @end
-    
-    //homeListItemJsonModel 对象
-    @interface homeListItemJsonModel : JSONModel
-    
-    @property (nonatomic, strong)NSString<Optional> *imageUrl;
-    @property (nonatomic, strong)NSNumber<Optional> *tagId;
-    
-    @end
-
-    (可选：Request Model)2.ModelRequestJsonModel *HomeRequestModel = [[ModelRequestJsonModel alloc] initWithURLPath:@"resources.json"];
+    ModelRequestJsonModel *HomeRequestModel = [[ModelRequestJsonModel alloc] initWithURLPath:@"resources.json"];
     
