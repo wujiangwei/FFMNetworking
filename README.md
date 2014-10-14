@@ -54,7 +54,9 @@ ModelNetworkClient 主要提供以下功能：
   
   
   4.如何使用本模块
-  
+    
+    **** ModelNetworkClient 使用方法 ****
+    
     （可选）你可以定制自己的NetClient，如果需要的话：
     
     如果你需要加入baseUrl 你需要继承ModelNetworkClient，并且重写以下方法
@@ -90,11 +92,13 @@ ModelNetworkClient 主要提供以下功能：
         }
     
     
-    简单使用本模块
+    **** 网络请求 使用方法 ****
+    
+    **** **** **** **** **** ****
     
     和AFNetworking一样使用，参见https://github.com/AFNetworking/AFNetworking
     
-    Get Request
+    Get Request（AFNetworking）
     
     //基本请求：返回基本数据
     
@@ -106,7 +110,10 @@ ModelNetworkClient 主要提供以下功能：
     }];
     
     
+    **** **** **** **** ****
+    
     //优化的请求：返回你用脚本生成的model
+    
     [[ModelNetworkClient defaultNetClient] GET:@"http://example.com/resources.json" JSONModelClass:[HomeResonseModel class] success:^(AFHTTPRequestOperation *operation, id responseObject) {
     
         //此时返回给你的，是已经自动填充好的HomeResonseModel Class对象
@@ -121,6 +128,7 @@ ModelNetworkClient 主要提供以下功能：
         
     }];
     
+    **** **** **** **** ****
     
     //进一步细化的请求：使用requestModel
     [[ModelNetworkClient defaultNetClient] GETRModel:HomeRequestModel JSONModelClass:[HomeResonseModel class]                success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -135,6 +143,8 @@ ModelNetworkClient 主要提供以下功能：
         
     }];
     
+    
+    **** **** 一些进阶说明 **** ****
     
     //如果客户端协议简单，推荐直接使用url
     
@@ -175,9 +185,13 @@ ModelNetworkClient 主要提供以下功能：
   
   
   **** JSONModel 说明 ****
+  
   //JSONModel讲解：
+  
   Optional 代表这个字段，服务器可以不返回
+  
   Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
+  
     
     JSONModel示例代码以及说明
     
