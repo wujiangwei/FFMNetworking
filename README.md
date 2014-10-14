@@ -55,7 +55,7 @@ ModelNetworkClient 主要提供以下功能：
   
   4.如何使用本模块
   
-    （可选）你可以定制话自己的NetClient，如果需要的话：
+    （可选）你可以定制自己的NetClient，如果需要的话：
     
     如果你需要加入baseUrl 你需要继承ModelNetworkClient，并且重写以下方法
     
@@ -138,13 +138,15 @@ ModelNetworkClient 主要提供以下功能：
     
     //如果客户端协议简单，推荐直接使用url
     
+    （可选）
+    
     //什么情况下推荐使用requestModel
     
-    //当你的请求比较复杂时，比如，所有的客户端请求都需要带Api版本号，App版本号，定位信息时。
+      //当你的请求比较复杂时，比如，所有的客户端请求都需要带Api版本号，App版本号，定位信息时。
     
-    //此时你可以定义一个BaseRequestModel,在这个里面写好公共请求参数
+      //此时你可以定义一个BaseRequestModel,在这个里面写好公共请求参数
     
-    //你的其他model，都继承于BaseRequestModel，然后加上每个请求特有的参数
+      //你的其他model，都继承于BaseRequestModel，然后加上每个请求特有的参数
     
   
     POST Requet
@@ -169,34 +171,13 @@ ModelNetworkClient 主要提供以下功能：
   
   比如：当你的请求中 存在 timestamps时，每次基于path产生的缓存路径都会不一样，所以此时的缓存是无效的，你需要在产生path前，让类似于timestamps这种字段设置为忽略，这样cache path就不会包含这个字段
   
-    3.如果你的服务器返回的数据是框架性的数据，使用JSONModel起来需要重复的建立很多文件，本模块提供了数据预处理，比如服务器统一返回如下字段
-  
-  {
-  
-    "errorId":0,
-    
-    'errorMessage':"message",
-    
-    'data':DataObject
-    
-  } 
-  你可以把这3个字段处理到同级JSONModel目录
-  
-  {
-  
-    "errorId":0,
-    
-    'errorMessage':"message",
-    
-    //其他返回字段对象，去除了data层的包装，节约JSONModel文件建立的工作量
-    
-  } 
+    3.如果你的服务器返回的数据是框架性的数据，使用JSONModel起来需要重复的建立很多文件，本模块提供了数据预处理
   
   
   **** JSONModel 说明 ****
   //JSONModel讲解：Optional 代表这个字段，服务器可以不返回，Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
     
-    
+    JSONModel示例代码以及说明
     
     1.定义你的返回Model：HomeResonseModel:
     
