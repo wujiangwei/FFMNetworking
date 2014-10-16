@@ -34,6 +34,8 @@ static ModelNetworkClient *__helper = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __helper = [[self alloc] initWithBaseURL:[NSURL URLWithString:[[self class] baseUrl]]];
+        [__helper setLogger:YES];
+        [__helper addresponseSerializerContentTypes:@"text/html"];
     });
     return __helper;
 }
@@ -51,7 +53,7 @@ static ModelNetworkClient *__helper = nil;
 
 #pragma mark - Http GET and POST
 
-#pragma mark - POST
+#pragma mark - GET
 
 - (AFHTTPRequestOperation *)GET:(NSString *)urlPath
                           param:(NSDictionary *)params

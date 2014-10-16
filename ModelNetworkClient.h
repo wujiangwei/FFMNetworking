@@ -75,7 +75,7 @@ typedef void (^BlockHTTPRequestCache)(AFHTTPRequestOperation *operation, id resp
 #pragma mark - get handler
 
 /**
- *  继承ModelNetworkClient，Override该方法设置baseUrl
+ *  Override 继承ModelNetworkClient，设置baseUrl
  *
  *  @return BaseURL
  */
