@@ -186,26 +186,5 @@ ModelNetworkClient 主要提供以下功能：
   
   **** JSONModel 说明 ****
   
-  //JSONModel讲解：
-  
-  Optional 代表这个字段，服务器可以不返回
-  
-  Ignore 代表反射时，忽略该字段，如果什么都不写，就是服务器必须返回这个字段（这样是不好的，会让客户端出现异常，除非服务器可以保证）
-  
-    
-    JSONModel示例代码以及说明
-    
- 
-
-    @property (nonatomic, strong)NSNumber<Optional> *errorId;   //number类型
-    @property (nonatomic, strong)NSString<Optional> *homeString;//字符串
-    @property (nonatomic, strong)homeListItemJsonModel<Optional> *homeObject;   //对象
-    
-    //协议homeListItemJsonModel是一个空协议，代表了，这个数组里的对象类型是什么
-    @property (nonatomic, strong)NSArray<Optional, homeListItemJsonModel> *homeList;    //数组
-    
-    //如果是基本类型，无需写homeListItemJsonModel，默认是NSString~
-    @property (nonatomic, strong)NSArray<Optional> *stringArray;    //数组
-
-    ModelRequestJsonModel *HomeRequestModel = [[ModelRequestJsonModel alloc] initWithURLPath:@"resources.json"];
-    
+  很细节全面的讲解~
+  http://blog.csdn.net/u013368288/article/details/23887257
