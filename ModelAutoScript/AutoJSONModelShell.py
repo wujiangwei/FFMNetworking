@@ -22,8 +22,8 @@ if(isCustomStructModel == 1):
     yourModelBaseClassName = 'SomeBaseJSONModel'
 
 #default key for list object
-#warning,if your use JFNetworkingClient,do not change this default key
-defaultListKey = 'kJFObjectDefaultArrayKey'
+#warning,if your use FFMNetworking,do not change this default key
+defaultListKey = 'kFFObjectDefaultArrayKey'
 
 #config file name list
 jsonFileList = []   #废弃，使用实时请求的方式

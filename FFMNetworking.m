@@ -1,28 +1,25 @@
 //
-//  ModelNetworkClient.m
+//  FFMNetworking.m
 //  AppModule
 //
 //  Created by wujiangwei on 14-9-22.
 //  Copyright (c) 2014年 Kevin. All rights reserved.
 //
 
-#import "ModelNetworkClient.h"
+#import "FFMNetworking.h"
 
-#import <objc/runtime.h>
-#import "UIViewController+FFViewControllerPlaceholdHelper.h"
+NSString *const kNetworkDataParseErrorDomain = @"FFMNetworking.JSON.PARSE.ERROR";
 
-NSString *const kNetworkDataParseErrorDomain = @"ModelNetworkClient.JSON.PARSE.ERROR";
+static FFMNetworking *__helper = nil;
 
-static ModelNetworkClient *__helper = nil;
-
-@interface ModelNetworkClient()
+@interface FFMNetworking()
 {
     BOOL _isOpenLogger;
 }
 
 @end
 
-@implementation ModelNetworkClient
+@implementation FFMNetworking
 
 #pragma mark - handler
 
@@ -51,7 +48,7 @@ static ModelNetworkClient *__helper = nil;
 }
 
 - (void)reloadHttpClientWithBaseURL:(NSString *)aURL {
-    __helper = [[ModelNetworkClient alloc] initWithBaseURL:[NSURL URLWithString:aURL]];
+    __helper = [[FFMNetworking alloc] initWithBaseURL:[NSURL URLWithString:aURL]];
 }
 
 #pragma mark - Http GET and POST
@@ -216,7 +213,7 @@ static ModelNetworkClient *__helper = nil;
     AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
         
-        ModelResponseJsonModel *responseModel = [ModelNetworkClient JSONModelFromResponseDictionary:[ModelNetworkClient dictionaryFromResponseData:responseObject] withJSONModelClass:responseModelClass error:&error];
+        ModelResponseJsonModel *responseModel = [FFMNetworking JSONModelFromResponseDictionary:[FFMNetworking dictionaryFromResponseData:responseObject] withJSONModelClass:responseModelClass error:&error];
         if (error == nil && success && responseModelClass != nil) {
             success(operation, responseModel);
         }else{
@@ -276,7 +273,7 @@ static ModelNetworkClient *__helper = nil;
 
 + (NSDictionary *)dictionaryFromResponseData:(id)responseData {
     
-    if ([ModelNetworkClient isClassTypeSupport:responseData] == NO) {
+    if ([FFMNetworking isClassTypeSupport:responseData] == NO) {
         return nil;
     }
     
@@ -306,7 +303,7 @@ static ModelNetworkClient *__helper = nil;
     @try
     {
         //如何需要特殊处理服务器返回的数据结构，在此处处理
-        NSDictionary *dealedDic = [ModelNetworkClient willParseDicToJSONModel:dictionary];
+        NSDictionary *dealedDic = [FFMNetworking willParseDicToJSONModel:dictionary];
         
         aModel = [(ModelResponseJsonModel *)[JSONModelClass alloc] initWithDictionary:dealedDic error:error];
     }

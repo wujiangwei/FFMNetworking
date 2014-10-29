@@ -1,5 +1,5 @@
 //
-//  ModelNetworkClient.h
+//  FFMNetworking.h
 //  AppModule
 //
 //  Created by wujiangwei on 14-9-22.
@@ -13,7 +13,7 @@
 
 //If Service just return an array, your response JSONModel can use this key to get Array
 //Always, Service prefer to returning a Dic(Map/Key-Value) To Client
-#define kModelNetworkDefaultArrayKey    @"kJFObjectDefaultArrayKey"
+#define kModelNetworkDefaultArrayKey    @"kFFObjectDefaultArrayKey"
 
 /**
  *  Http/Https response data Cache策略
@@ -63,6 +63,7 @@ typedef void (^BlockHTTPRequestUploadProgress)(NSUInteger bytesWritten, long lon
 //Net cache will support later
 typedef void (^BlockHTTPRequestCache)(AFHTTPRequestOperation *operation, id responseObject, eURLCachePolicy cachePolicy);
 
+//@class JSONModel;
 @class ModelRequestJsonModel;
 @class ModelResponseJsonModel;
 
@@ -70,12 +71,12 @@ typedef void (^BlockHTTPRequestCache)(AFHTTPRequestOperation *operation, id resp
  *  封装HTTP请求
  *  HTTPS have not support
  */
-@interface ModelNetworkClient : AFHTTPRequestOperationManager
+@interface FFMNetworking : AFHTTPRequestOperationManager
 
 #pragma mark - get handler
 
 /**
- *  Override 继承ModelNetworkClient，设置baseUrl
+ *  Override 继承FFMNetworking，设置baseUrl
  *
  *  @return BaseURL
  */
