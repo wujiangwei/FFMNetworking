@@ -3,7 +3,7 @@ ModelNetworkClient
 
 基于AFNetworking和JSONModel整合的IOS ModelNetworkClient(JFNetworkClient)
 最低支持IOS 6.0的开发
-（项目来自于 百度团购团队，经历了2次重构（一次百度团购、一次百度糯米）产生的网络框架，再整理后分享给大家）
+（项目来自于 XX团购团队，经历了2次重构产生的网络框架，再整理后分享给大家）
 
 依赖外部模块：
   AFNetworking（2.x+）
